@@ -19,7 +19,7 @@ public class PacienteController {
     PacienteRepository pacienteRepository;
 
     @PostMapping("/paciente")
-    public ResponseEntity<Paciente> saveProduct(@RequestBody @Valid PacienteRecordDTO pacienteRecordDTO) {
+    public ResponseEntity<Paciente> savePaciente(@RequestBody @Valid PacienteRecordDTO pacienteRecordDTO) {
         var paciente = new Paciente();
         BeanUtils.copyProperties(pacienteRecordDTO, paciente);
         return ResponseEntity.status(HttpStatus.CREATED).body(pacienteRepository.save(paciente));
